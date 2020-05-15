@@ -41,7 +41,7 @@ public class pontuacao {
 				if(quantCompra < 0) {
 					
 					ScorevolumeCompras = 0;
-				}else if (quantCompra == 1 && tiketMedio <= 3000.00) {
+				}else if (quantCompra <= 2 && tiketMedio <= 3000.00) {
 					
 					ScorevolumeCompras = 20;
 				}else if(quantCompra > 2 && tiketMedio <= 3000.00 ) {
@@ -53,7 +53,33 @@ public class pontuacao {
 	
 				System.out.println();
 				System.out.print("Score de volume de compras = " + ScorevolumeCompras + " pontos");
-	
+				System.out.println();
+		// Score de inadimplencia e pagamento
+				
+				if(inadimplencia > 1 || quantCompra < 0 ) {
+					
+					scoreInadimplencia = 0;
+				}else if(inadimplencia == 1 && quantCompra > 0 ) {
+					
+					scoreInadimplencia = 15;
+				}else if(inadimplencia < 0 && quantCompra > 0  ) {
+					
+					scoreInadimplencia = 30;
+				} 
+				
+				
+				if(formaPagamento == 'D' || formaPagamento == 'd' && quantCompra > 0) {
+					
+					scoreFormaPagamento = 5;
+					
+				}else if(formaPagamento == 'C' || formaPagamento == 'c' || formaPagamento == 'B' || formaPagamento == 'b' && quantCompra > 0 ) {
+					
+					scoreFormaPagamento = 10;
+				}
+	            
+				System.out.println();
+				System.out.println("Score de inadimplência = " + scoreInadimplencia + " pontos");
+				System.out.print("Score de forma de pagamento = " + scoreFormaPagamento + " pontos");
 	}
 
 }
