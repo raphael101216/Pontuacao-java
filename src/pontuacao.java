@@ -11,7 +11,7 @@ public class pontuacao {
 		DecimalFormat df = new DecimalFormat("0.00");
 		
 		char formaPagamento;
-		int quantCompra, inadimplencia, ScorevolumeCompras  = 0 , scoreInadimplencia  = 0 , scoreFormaPagamento  = 0, classificacaoFinal;
+		int quantCompra, inadimplencia, ScorevolumeCompras  = 0 , scoreInadimplencia  = 0 , scoreFormaPagamento  = 0, classificacaoFinal, scoreTotal;
 		double tiketMedio;
 		
 		// Cabeçalho
@@ -79,7 +79,26 @@ public class pontuacao {
 	            
 				System.out.println();
 				System.out.println("Score de inadimplência = " + scoreInadimplencia + " pontos");
-				System.out.print("Score de forma de pagamento = " + scoreFormaPagamento + " pontos");
+				System.out.println("Score de forma de pagamento = " + scoreFormaPagamento + " pontos");
+				
+				
+				// Classificação final
+				
+				scoreTotal = ScorevolumeCompras + scoreInadimplencia + scoreFormaPagamento;
+				
+				if(scoreTotal == 0 && scoreTotal <= 25) {
+					System.out.println();
+					System.out.println("Classificação final = CLIENTE BRONZE");
+					
+				}else if(scoreTotal > 25 && scoreTotal <= 75) {
+					System.out.println();
+					
+					System.out.println("Classificação final = CLIENTE PRATA");
+				}else if(scoreTotal > 75) {
+					
+					System.out.println();
+					System.out.println("Classificação final = CLIENTE OURO");
+				}
 	}
 
 }
