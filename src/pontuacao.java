@@ -11,7 +11,7 @@ public class pontuacao {
 		DecimalFormat df = new DecimalFormat("0.00");
 		
 		char formaPagamento;
-		int quantCompra, inadimplencia, ScorevolumeCompras, scoreInadimplencia, scoreFormaPagamento, classificacaoFinal;
+		int quantCompra, inadimplencia, ScorevolumeCompras  = 0 , scoreInadimplencia  = 0 , scoreFormaPagamento  = 0, classificacaoFinal;
 		double tiketMedio;
 		
 		// Cabeçalho
@@ -36,9 +36,23 @@ public class pontuacao {
 				System.out.print("A maioria das compras foi em dinheiro, cartão, ou boleto (D/C/B)?");
 				formaPagamento = sc.next().charAt(0);
 	
+	    //Score de volume de compras
+				
+				if(quantCompra < 0) {
+					
+					ScorevolumeCompras = 0;
+				}else if (quantCompra == 1 && tiketMedio <= 3000.00) {
+					
+					ScorevolumeCompras = 20;
+				}else if(quantCompra > 2 && tiketMedio <= 3000.00 ) {
+					
+					ScorevolumeCompras = 40;
+				}else if(tiketMedio > 3000.00) {
+					ScorevolumeCompras = 60;
+				}
 	
-	
-	
+				System.out.println();
+				System.out.print("Score de volume de compras = " + ScorevolumeCompras + " pontos");
 	
 	}
 
