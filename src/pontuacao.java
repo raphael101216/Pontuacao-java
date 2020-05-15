@@ -10,7 +10,8 @@ public class pontuacao {
 		Scanner sc = new Scanner(System.in);
 		DecimalFormat df = new DecimalFormat("0.00");
 		
-		int quantCompra, inadimplencia, formaPagamento, ScorevolumeCompras, scoreInadimplencia, scoreFormaPagamento, classificacaoFinal;
+		char formaPagamento;
+		int quantCompra, inadimplencia, ScorevolumeCompras, scoreInadimplencia, scoreFormaPagamento, classificacaoFinal;
 		double tiketMedio;
 		
 		// Cabeçalho
@@ -26,6 +27,19 @@ public class pontuacao {
 				quantCompra = sc.nextInt();
 				System.out.print("Qual o ticket médio?");
 				tiketMedio = sc.nextDouble();
+				
+		//Leitura dos outros dados
+				
+				System.out.println();
+				System.out.print("Quantas vezes o cliente atrasou o pagamento?");
+				inadimplencia = sc.nextInt();
+				System.out.print("A maioria das compras foi em dinheiro, cartão, ou boleto (D/C/B)?");
+				formaPagamento = sc.next().charAt(0);
+	
+	
+	
+	
+	
 	}
 
 }
